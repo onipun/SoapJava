@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/Lecture/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Lecture" targetNamespace="http://www.example.org/Lecture/">
+  <wsdl:message name="fnGetHelloClassRequest">
+    <wsdl:part name="strSubjectCode" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="fnGetHelloClassResponse">
+    <wsdl:part name="strRetHello" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="fnGetNumStudentsRequest">
+  	<wsdl:part name="strSubjectCode" type="xsd:string"></wsdl:part>
+
+  </wsdl:message>
+  <wsdl:message name="fnGetNumStudentsResponse">
+  	<wsdl:part name="intTotalStud" type="xsd:string"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fnGetStudInfoRequest">
+  	<wsdl:part name="strStudentID" type="xsd:string"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fnGetStudInfoResponse">
+  	<wsdl:part name="strStudName" type="xsd:string"></wsdl:part>
+  	<wsdl:part name="strStudGender" type="xsd:string"></wsdl:part>
+  	<wsdl:part name="strStudGroup" type="xsd:string"></wsdl:part>
+  	<wsdl:part name="StudYearBirth" type="xsd:date"></wsdl:part>
+  	<wsdl:part name="fltStudCGPA" type="xsd:float"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fnGetStudQueryRequest">
+  	<wsdl:part name="strLogin" type="xsd:string"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fnGetStudQueryResponse">
+  	<wsdl:part name="strFirstName" type="xsd:string"></wsdl:part>
+  	<wsdl:part name="strLastName" type="xsd:string"></wsdl:part>
+  	<wsdl:part name="strUserLvl" type="xsd:string"></wsdl:part>
+  	<wsdl:part name="strLastLogin" type="xsd:string"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getItemCountRequest">
+  	<wsdl:part name="getItemCountRequest" type="xsd:string"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getItemCountResponse">
+  	<wsdl:part name="getItemCountResponse" type="xsd:string"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Lecture">
+    <wsdl:operation name="fnGetHelloClass">
+      <wsdl:input message="tns:fnGetHelloClassRequest"/>
+      <wsdl:output message="tns:fnGetHelloClassResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="fnGetNumStudents">
+    	<wsdl:input message="tns:fnGetNumStudentsRequest"></wsdl:input>
+    	<wsdl:output message="tns:fnGetNumStudentsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fnGetStudInfo">
+    	<wsdl:input message="tns:fnGetStudInfoRequest"></wsdl:input>
+    	<wsdl:output message="tns:fnGetStudInfoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fnGetStudQuery">
+    	<wsdl:input message="tns:fnGetStudQueryRequest"></wsdl:input>
+    	<wsdl:output message="tns:fnGetStudQueryResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemCount">
+    	<wsdl:input message="tns:getItemCountRequest"></wsdl:input>
+    	<wsdl:output message="tns:getItemCountResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LectureSOAP" type="tns:Lecture">
+  	<soap:binding style="rpc"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="fnGetHelloClass">
+  		<soap:operation
+  			soapAction="http://www.example.org/Lecture/fnGetHelloClass" />
+  		<wsdl:input>
+  			<soap:body namespace="http://www.example.org/Lecture/"
+  				use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body namespace="http://www.example.org/Lecture/"
+  				use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="fnGetNumStudents">
+  		<soap:operation
+  			soapAction="http://www.example.org/Lecture/fnGetNumStudents" />
+  		<wsdl:input>
+  			<soap:body use="literal"
+  				namespace="http://www.example.org/Lecture/" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"
+  				namespace="http://www.example.org/Lecture/" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="fnGetStudInfo">
+  		<soap:operation
+  			soapAction="http://www.example.org/Lecture/fnGetStudInfo" />
+  		<wsdl:input>
+  			<soap:body use="literal"
+  				namespace="http://www.example.org/Lecture/" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"
+  				namespace="http://www.example.org/Lecture/" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="fnGetStudQuery">
+  		<soap:operation
+  			soapAction="http://www.example.org/Lecture/fnGetStudQuery" />
+  		<wsdl:input>
+  			<soap:body use="literal"
+  				namespace="http://www.example.org/Lecture/" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"
+  				namespace="http://www.example.org/Lecture/" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="getItemCount">
+  		<soap:operation
+  			soapAction="http://www.example.org/Lecture/getItemCount" />
+  		<wsdl:input>
+  			<soap:body use="literal"
+  				namespace="http://www.example.org/Lecture/" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal"
+  				namespace="http://www.example.org/Lecture/" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Lecture">
+    <wsdl:port binding="tns:LectureSOAP" name="LectureSOAP">
+      <soap:address location="http://localhost/webServiceSOAP/serverSOAP.php"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
