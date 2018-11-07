@@ -1,2 +1,2 @@
 # SoapJava
-this repo is exaample of using soap for api call
+this repo is example of using soap for api call
